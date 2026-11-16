@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTF Challenge Completed</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <section class="panel panel--success">
+
+      <div class="panel-top">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="panel-top-title">root@ctf-lab:~/auth</span>
+      </div>
+
+      <div class="panel-body">
+        <h1 class="title title--success">ACCESS GRANTED</h1>
+        <p class="subtitle">CTF Challenge Completed</p>
+
+        <div class="success-box">
+          <div class="meta-line">
+            <span class="meta-key">user</span>
+            <span class="meta-val">{{ username }}</span>
+          </div>
+          <div class="meta-line">
+            <span class="meta-key">status</span>
+            <span class="meta-val meta-val--ok">authenticated</span>
+          </div>
+          <div class="meta-line">
+            <span class="meta-key">flag</span>
+            <span class="meta-val">CTF{brute_force_training_complete}</span>
+          </div>
+        </div>
+
+        <a href="/logout" class="login-btn login-btn--ghost">
+          <span>LOG OUT</span>
+        </a>
+      </div>
+
+    </section>
+
+    <p class="footnote">Lab session complete. Reset or restart the server to run the exercise again.</p>
+  </main>
+
+</body>
+</html>

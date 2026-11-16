@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTF Login Challenge</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <section class="panel">
+
+      <div class="panel-top">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="panel-top-title">root@ctf-lab:~/auth</span>
+      </div>
+
+      <div class="panel-body">
+        <h1 class="title">CTF LOGIN CHALLENGE</h1>
+        <p class="subtitle">
+          Educational brute-force testing environment. This endpoint is built
+          for authorized penetration-testing practice (THC Hydra / Kali Linux)
+          against a local lab target only.
+        </p>
+
+        {% if error %}
+        <div class="alert" role="alert">
+          <span class="alert-tag">[ERROR]</span> {{ error }}
+        </div>
+        {% endif %}
+
+        <form class="login-form" action="/login" method="POST" autocomplete="off">
+          <label for="username">username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="admin"
+            autocomplete="off"
+            autofocus
+            required
+          >
+
+          <label for="password">password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            autocomplete="off"
+            required
+          >
+
+          <button type="submit" class="login-btn">
+            <span>LOGIN</span>
+          </button>
+        </form>
+
+        <div class="meta-line">
+          <span class="meta-key">endpoint</span>
+          <span class="meta-val">POST /login</span>
+        </div>
+        <div class="meta-line">
+          <span class="meta-key">params</span>
+          <span class="meta-val">username, password</span>
+        </div>
+      </div>
+
+    </section>
+
+    <p class="footnote">For use in isolated, authorized lab environments only.</p>
+  </main>
+
+</body>
+</html>
